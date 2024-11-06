@@ -1,2 +1,3 @@
-# zond-wallet-dapp-example
-A dApp web application for demonstrating the connectivity to the zond wallet web extension. 
+# Zond Wallet dApp Example
+
+A dApp web application for demonstrating the connectivity(based on EIP-6963) to the zond wallet web extension.
