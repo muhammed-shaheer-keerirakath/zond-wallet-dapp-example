@@ -24,7 +24,13 @@ Communication between a dApp and Zond Wallet happens via JSON-RPC API requests.
 
 The eth_requestAccounts method is an Ethereum provider API call that prompts the user to connect their Ethereum account(s) to the dApp.
 
-| **Request (JSON)**                                                                                    | **Response (JSON)**                                                                                                                      | **Example**                                                        |
+| **Request**                                                                                           | **Response**                                                                                                                             | **Example**                                                        |
 | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | <pre><code>{<br> "jsonrpc": "2.0",<br> "method": "eth_requestAccounts",<br> "id": 1<br>}</code></pre> | <pre><code>{<br> "jsonrpc": "2.0",<br> "id": 1,<br> "result": ["0x1234567890abcdef1234567890abcdef12345678"]<br>}</code></pre>           | `"result": ["0x1234567890abcdef1234567890abcdef12345678"]`         |
 |                                                                                                       | <pre><code>{<br> "jsonrpc": "2.0",<br> "id": 1,<br> "error": { "code": 4001, "message": "User rejected the request." }<br>}</code></pre> | `"error": {"code": 4001, "message": "User rejected the request."}` |
+
+The following code is used to connect to Zond Wallet in the `connectWallet` method of [WalletProvider.tsx](src/components/WalletProvider.tsx) file.
+
+```typescript
+const accounts = await provider.request({ method: "eth_requestAccounts" });
+```
